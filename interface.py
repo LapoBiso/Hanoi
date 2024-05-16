@@ -58,11 +58,9 @@ class mainWindow(QtWidgets.QWidget):
     def start(self):
         #Setting the game
         n = int(self.input.text())
-        self.input.clear()
         target = self.target.currentText()
-        self.target.setCurrentText("B")
         moves = []
-        self.secondWindow = resultWindow.resultWindow(self)
+        self.secondWindow = resultWindow.resultWindow(self )
         self.secondWindow.resize(1000, 800)
         self.secondWindow.show()
         self.close()

@@ -14,7 +14,9 @@ class resultWindow(QtWidgets.QWidget):
         imageScaled = self.image.scaledToWidth(350)
         self.imageLab.setPixmap(imageScaled)
         
-        self.title = QtWidgets.QLabel(f"Here it is the steps to solve the game with {parent.input.text()} disks")
+        self.title = QtWidgets.QLabel(f"Here it is the steps to solve the game with {parent.input.text()} disks and target {parent.target.currentText()} \n\n Remember: {parent.input.text()} represents the largest disk, 1 the smallest.")
+        parent.input.clear()
+        parent.target.setCurrentText("B")
         self.title.setAlignment(QtCore.Qt.AlignCenter)
         
         self.list = QtWidgets.QListWidget(self)
