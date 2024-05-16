@@ -62,5 +62,18 @@ class TestMyWidget(unittest.TestCase):
         self.assertFalse(self.widget.secondWindow.isVisible())
         self.assertTrue(self.widget.isVisible())
         
+    def test_target(self):
+        #testing target operation
+        self.widget.input.setText("5")
+        self.widget.target.setCurrentText("C")
+        QTest.mouseClick(self.widget.startButton, QtCore.Qt.LeftButton)
+        count = self.widget.secondWindow.list.count()
+        last_item = self.widget.secondWindow.list.item(count-1)
+        if last_item:
+            text = last_item.text()
+            if text:
+                last_char = text[-1]
+                self.assertEqual(last_char,"C")
+
 if __name__ == '__main__':
     unittest.main()
